@@ -27,6 +27,9 @@ public final class NacosConfigUtil {
     public static final String PARAM_FLOW_DATA_ID_POSTFIX = "-param-rules";
     public static final String CLUSTER_MAP_DATA_ID_POSTFIX = "-cluster-map";
     public static final String DESGRADE_DATA_ID_POSTFIX = "-degrade-rules";
+    public static String GATEWAY_API_DATA_ID_POSTFIX ="-gw-api-rules";
+    public static String GATEWAY_FLOW_DATA_ID_POSTFIX = "-gw-flow-rules";
+
 
 
     /**
@@ -39,7 +42,6 @@ public final class NacosConfigUtil {
     public static final String SERVER_TRANSPORT_CONFIG_DATA_ID_POSTFIX = "-cs-transport-config";
     public static final String SERVER_FLOW_CONFIG_DATA_ID_POSTFIX = "-cs-flow-config";
     public static final String SERVER_NAMESPACE_SET_DATA_ID_POSTFIX = "-cs-namespace-set";
-
 
 
     private NacosConfigUtil() {}

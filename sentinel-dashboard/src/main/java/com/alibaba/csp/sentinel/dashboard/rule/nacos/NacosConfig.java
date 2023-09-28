@@ -15,6 +15,8 @@
  */
 package com.alibaba.csp.sentinel.dashboard.rule.nacos;
 
+import com.alibaba.csp.sentinel.dashboard.datasource.entity.gateway.ApiDefinitionEntity;
+import com.alibaba.csp.sentinel.dashboard.datasource.entity.gateway.GatewayFlowRuleEntity;
 import com.alibaba.csp.sentinel.dashboard.datasource.entity.rule.DegradeRuleEntity;
 import com.alibaba.csp.sentinel.dashboard.datasource.entity.rule.FlowRuleEntity;
 import com.alibaba.csp.sentinel.datasource.Converter;
@@ -53,6 +55,28 @@ public class NacosConfig {
     public Converter<String, List<DegradeRuleEntity>> degradeRuleEntityDecoder() {
         return s -> JSON.parseArray(s, DegradeRuleEntity.class);
     }
+
+    /**  需要初始化网关流控规则数据源  **/
+    @Bean
+    public Converter<List<GatewayFlowRuleEntity>, String> gatewayFlowRuleEntityEncoder() {
+        return JSON::toJSONString;
+    }
+
+    @Bean
+    public Converter<String, List<GatewayFlowRuleEntity>> gatewayFlowRuleEntityDecoder() {
+        return s -> JSON.parseArray(s, GatewayFlowRuleEntity.class);
+    }
+
+    @Bean
+    public Converter<List<ApiDefinitionEntity>, String> gatewayApiEntityEncoder() {
+        return JSON::toJSONString;
+    }
+
+    @Bean
+    public Converter<String, List<ApiDefinitionEntity>> gatewayApiEntityDecoder() {
+        return s -> JSON.parseArray(s, ApiDefinitionEntity.class);
+    }
+
 
     @Bean
     public ConfigService nacosConfigService() throws Exception {
